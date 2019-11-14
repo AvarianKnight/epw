@@ -23,12 +23,12 @@ properties.Add( "EPWoptions", {
 			return menu
 		end
 
-		addoption( "Add this entity class to the Physgun Freeze Whitelist List", {
+		addoption( "Add this entity class to the Physgun Freeze Whitelist", {
 			icon = "icon16/tick.png",
 			callback = function() self:EPWcmd( ent, 1 ) end,
 		})
 
-		addoption( "Remove this entity class from the Physgun Freeze Whitelist List", {
+		addoption( "Remove this entity class from the Physgun Freeze Whitelist", {
 			icon = "icon16/cross.png",
 			callback = function() self:EPWcmd( ent, 2 ) end,
 		})
@@ -40,7 +40,7 @@ properties.Add( "EPWoptions", {
 			callback = function() self:EPWcmd( ent, 3 ) end,
 		})
 
-		addoption( "Remove this entity class from the Physgun Pickup blacklist", {
+		addoption( "Remove this entity class from the Physgun Pickup Blacklist", {
 			icon = "icon16/tick.png",
 			callback = function() self:EPWcmd( ent, 4 ) end,
 		})
@@ -73,7 +73,7 @@ properties.Add( "EPWoptions", {
 	Action = function( self, ent ) end,
 	EPWcmd = function( self, ent, cmd )
 		if IsValid( ent ) then
-			net.Start( "EPWntOwner.n.contextMenu" )
+			net.Start( "EPW.n.contextMenu" )
 				net.WriteUInt( cmd, 4 )
 				net.WriteEntity( ent )
 			net.SendToServer()
